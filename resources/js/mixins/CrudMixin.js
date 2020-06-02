@@ -38,8 +38,8 @@ export default {
             await this.axios.get(url,this.config)
             .then((ress)=>{
                 this.data = ress.data.data
-                this.page = ress.data.current_page
-                this.lengthpage = ress.data.last_page
+                this.page = ress.data.current_page ? ress.data.current_page : ress.data.meta.current_page
+                this.lengthpage = ress.data.last_page ? ress.data.last_page : ress.data.meta.last_page
             })
             .catch((err)=>{
                 console.log(err.response)

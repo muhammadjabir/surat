@@ -24,7 +24,7 @@
 
                     <v-text-field
                     v-model="user.email"
-                    label="Email"
+                    label="Username"
                     disabled
                     ></v-text-field>
 

@@ -26,7 +26,7 @@
                         <v-text-field
                         v-model="email"
                         :rules="emailRules"
-                        label="Email"
+                        label="Username"
                         required
                         ></v-text-field>
 

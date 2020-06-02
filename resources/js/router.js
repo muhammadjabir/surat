@@ -7,6 +7,8 @@ import UserRouter from './routes/users'
 import MasterDataRouter from './routes/Masterdata'
 import MenuRouter from './routes/Menu'
 import RoleManagementRouter from './routes/RoleManagement'
+import Surat from './routes/Surat'
+import JenisSurat from './routes/JenisSurat'
 
 // import Vuetify from 'vuetify'
 // Vue.use(Vuetify)
@@ -32,6 +34,8 @@ const router = new Router({
             MasterDataRouter,
             MenuRouter,
             RoleManagementRouter,
+            JenisSurat,
+            Surat
 
         ]
 

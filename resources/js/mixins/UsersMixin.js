@@ -17,8 +17,8 @@ export default {
         ],
         email: '',
         emailRules: [
-          v => !!v || 'E-mail is required',
-          v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+          v => !!v || 'Username is required',
+        //   v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
         ],
       }),
     methods: {

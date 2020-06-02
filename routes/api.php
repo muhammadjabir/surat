@@ -30,4 +30,8 @@ Route::get('/role-management/{id}/edit','Role\RoleManagementController@edit');
 Route::resource('masterdata', 'Masterdata\MasterdataController');
 Route::resource('menu', 'Menu\MenuController');
 Route::resource('users', 'Users\UsersController');
+Route::resource('jenis-surat', 'Api\JenisSuratController');
 });
+Route::get('/{surat}/{jenis}', 'Api\SuratController@index');
+Route::post('/{surat}/{jenis}', 'Api\SuratController@store');
+Route::post('/{surat}/{jenis}/status', 'Api\SuratController@teruskan');

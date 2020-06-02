@@ -13,7 +13,8 @@ export default {
 
     computed: {
         ...mapGetters({
-            token:'auth/token'
+            token:'auth/token',
+            user:'auth/user'
         })
     },
 

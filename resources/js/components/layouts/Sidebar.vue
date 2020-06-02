@@ -1,6 +1,6 @@
 <template>
 <div>
-<v-navigation-drawer app v-model="drawer" class="light" width="300px">
+<v-navigation-drawer app v-model="drawer" class="light" width="270px">
 	  <v-list-item>
         <v-list-item-avatar>
           <v-img :src="user.foto_profile ? user.foto_profile : 'http://localhost:8000/storage/defaultprofile.jpg'"></v-img>

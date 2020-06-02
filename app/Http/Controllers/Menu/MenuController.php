@@ -161,7 +161,7 @@ class MenuController extends Controller
             if (count($hapus_child) >= 1) {
                 if(!ChildMenu::whereIn('id',$hapus_child)->delete()){
                     $error ++;
-                    throw new \Exception('Gagal Hapus Child Mene');
+                    throw new \Exception('Gagal Hapus Child Menu');
                 }
             }
             if ($error === 0) {

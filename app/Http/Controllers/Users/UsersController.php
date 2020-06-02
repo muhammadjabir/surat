@@ -17,14 +17,23 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         if ($request) {
-            $user = User::with('role')->where('name','LIKE',"%{$request->keyword}%")
-                    ->orWhere('email','LIKE',"%{$request->keyword}%")
+            $user = User::with('role')->where(function($q) use($request){
+                        $q->where('name','LIKE',"%{$request->keyword}%");
+                        $q->where('id_role','!=',23);
+                    })
+                    ->orWhere(function($q) use($request){
+                        $q->where('email','LIKE',"%{$request->keyword}%");
+                        $q->where('id_role','!=',23);
+                    })
                     ->orWhereHas('role',function($q) use ($request){
                         $q->where('description','LIKE',"%{$request->keyword}%");
+                        $q->where('description','!=',"Developer");
                     })
                     ->paginate(15);
         }else{
-            $user = User::with('role')
+            $user = User::with('role')->whereHas('role',function($q){
+                $q->where('description','!==',"Developer");
+            })
                     ->paginate(15);
         }
 
