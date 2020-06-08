@@ -48,8 +48,10 @@ class UsersController extends Controller
     public function create()
     {
         $role = MasterDataDetail::where('id_master_data',5)->get();
+        $kasi = User::where('id_role',38)->get();
         return response()->json([
-            'roles' => $role
+            'roles' => $role,
+            'kasi'  => $kasi
         ]);
     }
 
@@ -77,6 +79,7 @@ class UsersController extends Controller
         $user->password = \Hash::make($request->password);
         $user->email = $request->email;
         $user->id_role = $request->id_role;
+        $user->id_kasi = $request->id_kasi;
         $user->save();
 
         return response()->json([
@@ -105,9 +108,11 @@ class UsersController extends Controller
     {
         $role = MasterDataDetail::where('id_master_data',5)->get();
         $user = User::findOrFail($id);
+        $kasi = User::where('id_role',38)->get();
         return response()->json([
             'user' =>$user,
-            'roles' => $role
+            'roles' => $role,
+            'kasi' => $kasi
         ]);
     }
 
@@ -138,6 +143,7 @@ class UsersController extends Controller
         }
         $user->email = $request->email;
         $user->id_role = $request->id_role;
+        $user->id_kasi = $request->id_kasi;
         $user->save();
 
         return response()->json([

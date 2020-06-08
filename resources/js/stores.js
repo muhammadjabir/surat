@@ -5,8 +5,7 @@ import snakbar from './stores/Snakbar'
 import auth from './stores/Auth'
 import BeforeUrl from './stores/BeforeUrl'
 import dialog from './stores/Dialog'
-// import statusDialog from './stores/dialog'
-// import aplication from './stores/aplication'
+import Disposisi from './stores/Disposisi'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -30,7 +29,8 @@ export default new Vuex.Store({
         auth,
         snakbar,
         BeforeUrl,
-        dialog
+        dialog,
+        Disposisi
         // statusDialog,
         // aplication,
     }

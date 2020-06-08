@@ -45,6 +45,15 @@
                             item-value="id"
                             required
                         ></v-select>
+                            <v-select
+                            v-model="id_kasi"
+                            :items="kasi"
+                            :rules="[v => !!v || 'Item is required']"
+                            label="Anggota Dari Kasi"
+                            item-text="name"
+                            item-value="id"
+                            required
+                        v-if="select == 39"></v-select>
 
 
                         <v-row>
@@ -96,6 +105,8 @@ export default {
             data.append('email',this.email)
             data.append('password',this.password)
             data.append('id_role' , this.select)
+            data.append('id_kasi' , this.id_kasi)
+
             data.append('_method','PUT')
 
             await this.axios.post(url,data,this.config)
@@ -137,6 +148,7 @@ export default {
              this.name = user.name
              this.email = user.email
              this.select = user.id_role
+             this.id_kasi = user.id_kasi
          })
          .catch((err) => console.log(err.response))
         }

@@ -7,6 +7,8 @@ export default {
         loading:false,
         select:'',
         items:[],
+        id_kasi:'',
+        kasi:[],
         name: '',
         nameRules: [
           v => !!v || 'Tidak Boleh Kosong',
@@ -30,6 +32,7 @@ export default {
             this.axios.get(window.location.pathname,this.config)
             .then((ress) => {
                 this.items = ress.data.roles
+                this.kasi = ress.data.kasi
             })
             .catch((err) => console.log(err))
         }

@@ -4,8 +4,8 @@
 </template>
 
 <script>
-import SuratMasukComponent from '../../components/surat/suratMasuk'
-import SuratKeluarkComponent from '../../components/surat/suratKeluar'
+import SuratMasukComponent from '../../components/suratMasuk/suratMasuk'
+import SuratKeluarkComponent from '../../components/suratKeluar/suratKeluar'
 import SuratMixin from '../../mixins/SuratMixin'
 export default {
     data() {
@@ -14,7 +14,7 @@ export default {
         }
     },
     created(){
-        console.log(this.$route)
+        // console.log(this.$route)
         if (this.$route.params.surat == 'surat-masuk') {
             this.currentComponent = 'SuratMasuk'
         }else {
@@ -22,13 +22,11 @@ export default {
         }
     },
     beforeRouteUpdate (to, from, next) {
-
+        this.loading = true
         if (to.params.surat == 'surat-masuk') {
-              this.currentComponent = 'SuratKeluar'
             this.currentComponent = 'SuratMasuk'
         }else {
            this.currentComponent = 'SuratKeluar'
-           this.currentComponent = 'SuratMasuk'
         }
         next()
     },

@@ -1,4 +1,4 @@
-import {mapActions} from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
 import middleware from '../mixins/middleware'
 export default {
     data: () => ({
@@ -13,7 +13,7 @@ export default {
         perihal: '',
         keterangan: '',
         tindak_lanjut: false,
-        tgl_terima:null,
+        tgl_terima:'',
         tgl_surat:'',
         perioritas:'',
         file_surat: '',
@@ -25,12 +25,17 @@ export default {
             'Biasa',
           ],
         menu1:'',
-        menu2:''
+        menu2:'',
+        menu3:'',
+        tgl_disposisi:'',
+        isi_disposisi:'',
+
       }),
     methods: {
         ...mapActions({
             setSnakbar: 'snakbar/setSnakbar',
-            setAuth : 'auth/setAuth'
+            setAuth : 'auth/setAuth',
+            setDisposisi: 'Disposisi/setDialog'
         }),
 
         me(){
@@ -44,7 +49,18 @@ export default {
             })
             .catch((err) =>console.log(err.response))
         },
+        async disposisi(id_surat = ''){
+
+            this.setDisposisi(!this.dialogDisposisi)
+        }
+
     },
+    computed: {
+        ...mapGetters({
+            dialogDisposisi: 'Disposisi/dialogData'
+        })
+    },
+
     mixins:[middleware]
 
 }

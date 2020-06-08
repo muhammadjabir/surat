@@ -24,9 +24,10 @@ class SuratMasuk extends JsonResource
             'asal_surat' => $this->asal_surat,
             'perihal' => $this->perihal,
             'status' => $this->status,
-            'file_surat' => asset('storage/'.$this->file_surat),
+            'file_surat' => $this->file_surat ? asset('storage/'.$this->file_surat) : '',
             'keterangan' =>$this->keterangan,
-            'tindak_lanjut' => $this->tindak_lanjut
+            'tindak_lanjut' => $this->tindak_lanjut,
+            'perioritas'=> $this->perioritas
         ];
 
         return $data;
